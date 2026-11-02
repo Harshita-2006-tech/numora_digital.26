@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d1510">
+    <title>NUMORA | Universal Number System Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a class="brand" href="#home">NUM<span>ORA</span><small> DIGITAL LAB</small></a>
+    <nav>
+        <a href="#converter">Converter</a>
+        <a href="#visualizer">Visualizer</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#logic">Logic Gates</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+    <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">☀</button>
+</header>
+
+<main id="home">
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="eyebrow">DIGITAL ELECTRONICS • INTERACTIVE LEARNING</span>
+        <h1>Master Every<br><span>Number System.</span></h1>
+        <p>Convert, calculate, visualize and understand digital number systems — all in one intelligent lab.</p>
+        <a href="#converter" class="main-btn">Explore Digital Lab ↗</a>
+    </div>
+    <div class="hero-art">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="binary-art">
+            <span>10110101</span>
+            <strong>01</strong>
+            <span>11001010</span>
+        </div>
+        <div class="art-caption">BASE 2 · BASE 8 · BASE 10 · BASE 16</div>
+    </div>
+</section>
+
+<div class="stats">
+    <div><strong>04</strong><span>Number Systems</span></div>
+    <div><strong>06+</strong><span>Learning Modules</span></div>
+    <div><strong>100%</strong><span>Interactive Lab</span></div>
+    <div><strong>API</strong><span>Connected Tool</span></div>
+</div>
+
+<!-- CONVERTER -->
+
+<section id="converter" class="section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">01 / SMART CONVERSION</span>
+            <h2>Universal Converter</h2>
+            <p>Convert numbers between four different number systems.</p>
+        </div>
+        <span class="status-pill">● READY TO CONVERT</span>
+    </div>
+
+    <div class="panel">
+        <div class="form-grid">
+            <div>
+                <label for="sourceBase">INPUT NUMBER SYSTEM</label>
+                <select id="sourceBase">
+                    <option value="10">Decimal (Base 10)</option>
+                    <option value="2">Binary (Base 2)</option>
+                    <option value="8">Octal (Base 8)</option>
+                    <option value="16">Hexadecimal (Base 16)</option>
+                </select>
+            </div>
+            <div>
+                <label for="inputNumber">ENTER YOUR NUMBER</label>
+                <input id="inputNumber" type="text" placeholder="Example: 255" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="presets">
+            <span>QUICK EXAMPLES</span>
+            <button class="preset" data-value="10">10</button>
+            <button class="preset" data-value="25">25</button>
+            <button class="preset" data-value="100">100</button>
+            <button class="preset" data-value="255">255</button>
+            <button class="preset" data-value="512">512</button>
+            <button class="preset" data-value="1024">1024</button>
+        </div>
+
+        <div class="actions">
+            <button id="convertBtn" class="main-btn">Convert Number →</button>
+            <button id="clearBtn" class="secondary-btn">Clear All</button>
+        </div>
+        <p id="message" class="message" role="status"></p>
+    </div>
+
+    <div class="results-grid">
+        <article class="result-card">
+            <span class="result-base">BASE 2</span>
+            <h3>Binary</h3>
+            <p id="binaryResult">---</p>
+            <button class="copy-btn" data-target="binaryResult">Copy ↗</button>
+        </article>
+        <article class="result-card">
+            <span class="result-base">BASE 8</span>
+            <h3>Octal</h3>
+            <p id="octalResult">---</p>
+            <button class="copy-btn" data-target="octalResult">Copy ↗</button>
+        </article>
+        <article class="result-card">
+            <span class="result-base">BASE 10</span>
+            <h3>Decimal</h3>
+            <p id="decimalResult">---</p>
+            <button class="copy-btn" data-target="decimalResult">Copy ↗</button>
+        </article>
+        <article class="result-card">
+            <span class="result-base">BASE 16</span>
+            <h3>Hexadecimal</h3>
+            <p id="hexResult">---</p>
+            <button class="copy-btn" data-target="hexResult">Copy ↗</button>
+        </article>
+    </div>
+
+    <div class="api-status">
+        <span class="api-dot"></span>
+        <div>
+            <strong>API CONNECTION</strong>
+            <p id="apiStatus">Waiting for your first conversion.</p>
+        </div>
+    </div>
+
+    <div class="panel explanation">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">LEARN WHILE CONVERTING</span>
+                <h3>Step-by-Step Explanation</h3>
+            </div>
+        </div>
+        <div id="stepsContent">Your conversion steps will appear here.</div>
+    </div>
+</section>
+
+<!-- VISUALIZER -->
+
+<section id="visualizer" class="section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">02 / BIT EXPLORER</span>
+            <h2>Binary Visualizer</h2>
+            <p>Explore individual bits and understand their place values.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="form-grid">
+            <div>
+                <label for="visualValue">DECIMAL VALUE</label>
+                <input id="visualValue" type="number" min="0" max="65535" value="25">
+            </div>
+            <div>
+                <label for="bitWidth">REGISTER WIDTH</label>
+                <select id="bitWidth">
+                    <option value="8">8-bit register</option>
+                    <option value="16">16-bit register</option>
+                </select>
+            </div>
+        </div>
+        <div class="bit-info">
+            <span>MSB = Most Significant Bit</span>
+            <span>LSB = Least Significant Bit</span>
+        </div>
+        <div id="bitDisplay" class="bit-display"></div>
+        <div id="bitDetails" class="bit-details"></div>
+    </div>
+</section>
+
+<!-- BINARY CALCULATOR -->
+
+<section id="calculator" class="section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">03 / ARITHMETIC LAB</span>
+            <h2>Binary Calculator</h2>
+            <p>Perform arithmetic operations using binary numbers.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="form-grid">
+            <div>
+                <label for="binaryA">FIRST BINARY NUMBER</label>
+                <input id="binaryA" placeholder="Example: 1010">
+            </div>
+            <div>
+                <label for="binaryB">SECOND BINARY NUMBER</label>
+                <input id="binaryB" placeholder="Example: 0011">
+            </div>
+        </div>
+        <label for="binaryOperation">SELECT OPERATION</label>
+        <select id="binaryOperation">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (×)</option>
+            <option value="/">Division (÷)</option>
+        </select>
+        <button id="calculateBinary" class="main-btn calculate-btn">Calculate →</button>
+        <div class="answer-box">
+            <span>RESULT IN BINARY</span>
+            <h3 id="binaryAnswer">---</h3>
+            <p id="binaryDecimalAnswer"></p>
+            <p id="binaryCalculationSteps"></p>
+        </div>
+    </div>
+</section>
+
+<!-- LOGIC GATES -->
+
+<section id="logic" class="section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">04 / DIGITAL LOGIC LAB</span>
+            <h2>Logic Gate Simulator</h2>
+            <p>Change inputs and observe the output of digital logic gates.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="logic-controls">
+            <div>
+                <label for="logicA">INPUT A</label>
+                <select id="logicA">
+                    <option value="0">0 (LOW)</option>
+                    <option value="1">1 (HIGH)</option>
+                </select>
+            </div>
+            <div>
+                <label for="logicB">INPUT B</label>
+                <select id="logicB">
+                    <option value="0">0 (LOW)</option>
+                    <option value="1">1 (HIGH)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="gate-grid">
+            <div class="gate-card"><span>AND</span><strong id="andOutput">0</strong><small>A · B</small></div>
+            <div class="gate-card"><span>OR</span><strong id="orOutput">0</strong><small>A + B</small></div>
+            <div class="gate-card"><span>NAND</span><strong id="nandOutput">1</strong><small>NOT (A · B)</small></div>
+            <div class="gate-card"><span>NOR</span><strong id="norOutput">1</strong><small>NOT (A + B)</small></div>
+            <div class="gate-card"><span>XOR</span><strong id="xorOutput">0</strong><small>A ⊕ B</small></div>
+            <div class="gate-card"><span>NOT A</span><strong id="notOutput">1</strong><small>NOT A</small></div>
+        </div>
+        <p class="logic-note">A and B are digital inputs. 0 represents LOW and 1 represents HIGH.</p>
+    </div>
+</section>
+
+<!-- QUIZ -->
+
+<section id="quiz" class="section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">05 / KNOWLEDGE CHECK</span>
+            <h2>Number System Quiz</h2>
+            <p>Test your understanding of digital number systems.</p>
+        </div>
+    </div>
+
+    <div class="panel quiz-panel">
+        <div class="quiz-top">
+            <span id="questionNumber">QUESTION 1 / 6</span>
+            <span id="quizScore">SCORE: 0</span>
+        </div>
+        <div class="progress-track"><div id="quizProgress"></div></div>
+        <h3 id="questionText">Loading question...</h3>
+        <div id="quizOptions" class="quiz-options"></div>
+        <p id="quizFeedback" role="status"></p>
+        <button id="nextQuestion" class="main-btn" disabled>Next Question →</button>
+        <button id="restartQuiz" class="secondary-btn hidden">Restart Quiz</button>
+    </div>
+</section>
+
+<!-- HISTORY -->
+
+<section id="history" class="section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">06 / YOUR ACTIVITY</span>
+            <h2>Conversion History</h2>
+            <p>Your recent conversions are saved in this browser.</p>
+        </div>
+        <button id="clearHistory" class="secondary-btn">Clear History</button>
+    </div>
+    <div class="panel history-panel">
+        <div id="historyList">No conversions yet. Try your first conversion!</div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+    <div class="about-panel">
+        <span class="eyebrow">ABOUT THE PROJECT</span>
+        <h2>Understanding the language of computers.</h2>
+        <p>NUMORA is an interactive educational platform designed to help students understand number systems, binary arithmetic and digital logic through practical demonstrations.</p>
+        <div class="about-tags">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            <span>REST API</span><span>Digital Electronics</span>
+        </div>
+        <p><strong>Academic Level:</strong> Second Year B.Tech</p>
+        <p><strong>Subject:</strong> Digital Electronics</p>
+        <p><strong>Project Type:</strong> Mini Project</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <strong>NUMORA</strong>
+    <p>Universal Number System Digital Lab</p>
+    <small>Created for Second Year B.Tech Digital Electronics</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
